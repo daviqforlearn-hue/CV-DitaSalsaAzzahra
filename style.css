@@ -308,41 +308,20 @@ body {
    MOBILE: DESKTOP LAYOUT FIT TO SCREEN
    ========================================= */
 @media (max-width: 768px) {
-    html,
-    body {
+    .action-bar {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 20px;
+        left: 0;
         width: 100%;
         max-width: 100%;
+        justify-content: center;
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
+        z-index: 9999;
+        pointer-events: none;
     }
 
-    body {
-        display: block;
-        position: relative;
-        min-height: 100vh;
-    }
-
-    .action-bar {
-        display: none !important;
-    }
-
-    .cv-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        width: 900px !important;
-        min-width: 900px !important;
-        max-width: none !important;
-
-        flex-direction: row !important;
-        margin: 0 !important;
-
-        transform-origin: top left;
-        box-shadow: none;
-        border-radius: 0;
-    }
     .btn-download {
         pointer-events: auto;
         padding: 12px 24px;
@@ -352,16 +331,5 @@ body {
 
     .cv-container {
         top: 0 !important;
-    }
-}
-
-    .sidebar {
-        width: 33% !important;
-        flex-shrink: 0;
-    }
-
-    .main-content {
-        width: 67% !important;
-        flex-shrink: 0;
     }
 }
