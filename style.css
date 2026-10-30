@@ -258,37 +258,6 @@ body {
     top: -2px;
 }
 
-/* ==========================================================================
-   BAR AKSI TOP (Download Button Melayang)
-   ========================================================================== */
-.action-bar {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 15px;
-}
-
-.btn-download {
-    background-color: #1a202c;
-    color: #ffffff;
-    padding: 12px 24px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    border: 1px solid #d4af37;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-}
-
-.btn-download:hover {
-    background-color: #d4af37;
-    color: #1a202c;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
-}
 
 /* ==========================================================================
    PERSIAPAN ANIMASI (State Awal Tersembunyi untuk Script.js)
@@ -354,4 +323,35 @@ body {
         width: 67% !important;
         flex-shrink: 0;
     }
+/* ==========================================================================
+   BAR AKSI TOP (Download Button Melayang)
+   ========================================================================== */
+.action-bar {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.btn-download {
+    background-color: #1a202c;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background-color: #d4af37;
+    color: #1a202c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
 }
