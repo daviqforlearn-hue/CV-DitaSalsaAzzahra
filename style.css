@@ -313,7 +313,7 @@ body {
     display: flex !important;
     position: absolute;
     top: auto;
-    bottom: 35px;
+    bottom: 55px;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
