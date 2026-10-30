@@ -293,22 +293,6 @@ body {
         min-height: 100vh;
     }
 
-.action-bar {
-    display: flex !important;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 100%;
-    justify-content: center;
-    margin: 0;
-    z-index: 1000;
-}
-
-.btn-download {
-    width: 90%;
-    text-align: center;
-    padding: 12px;
-}
     .cv-container {
         position: absolute;
         top: 65px !important;
@@ -325,6 +309,26 @@ body {
         box-shadow: none;
         border-radius: 0;
     }
+   .action-bar {
+    display: flex !important;
+    position: absolute;
+    top: auto;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    justify-content: center;
+    margin: 0;
+    z-index: 1000;
+}
+
+.btn-download {
+    width: auto;
+    padding: 9px 18px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    white-space: nowrap;
+}
 
     .sidebar {
         width: 33% !important;
