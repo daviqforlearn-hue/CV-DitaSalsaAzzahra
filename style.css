@@ -293,10 +293,22 @@ body {
         min-height: 100vh;
     }
 
-    .action-bar {
-        display: none !important;
-    }
+.action-bar {
+    display: flex !important;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    z-index: 1000;
+}
 
+.btn-download {
+    width: 90%;
+    text-align: center;
+    padding: 12px;
+}
     .cv-container {
         position: absolute;
         top: 65px !important;
