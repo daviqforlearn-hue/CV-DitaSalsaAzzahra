@@ -307,7 +307,6 @@ body {
 /* =========================================
    MOBILE: DESKTOP LAYOUT FIT TO SCREEN
    ========================================= */
-
 @media (max-width: 768px) {
     html,
     body {
@@ -353,31 +352,5 @@ body {
     .main-content {
         width: 67% !important;
         flex-shrink: 0;
-    }
-}
-@media (max-width: 768px) {
-    .action-bar {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 20px;
-        left: 0;
-        width: 100%;
-        max-width: 100%;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        z-index: 9999;
-        pointer-events: none;
-    }
-
-    .btn-download {
-        pointer-events: auto;
-        padding: 12px 24px;
-        border-radius: 50px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    .cv-container {
-        top: 0 !important;
     }
 }
