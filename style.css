@@ -304,39 +304,54 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-/* ==========================================================================
-   OPTIMASI HP: PENGUNCI LAYAR FULL & ANTI GESER KESAMPING
-   ========================================================================== */
+/* =========================================
+   MOBILE: DESKTOP LAYOUT FIT TO SCREEN
+   ========================================= */
+
 @media (max-width: 768px) {
-    /* Mengunci halaman web secara total agar tidak bisa meleset ke kanan/kiri */
-    html, body {
-        overflow-x: hidden !important;
-        position: relative;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
     }
 
     body {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        display: block;
+        position: relative;
         min-height: 100vh;
     }
 
-    /* Setelan kontainer CV sebelum diskala oleh JavaScript */
-    .cv-container {
-        flex-direction: row !important; /* Tetap pertahankan dua kolom */
-        width: 900px !important;       /* Gunakan lebar laptop standar */
-        min-width: 900px !important;
-        transform-origin: top center;  /* Kunci as pengecilan di atas tengah */
-        margin: 0 auto !important;
-        box-shadow: none !important;   /* Hapus bayangan agar sisi kanan-kiri tidak memicu scroll */
-    }
-
-    /* Sembunyikan bar tombol download di HP agar space layar bersih */
     .action-bar {
         display: none !important;
+    }
+
+    .cv-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 900px !important;
+        min-width: 900px !important;
+        max-width: none !important;
+
+        flex-direction: row !important;
+        margin: 0 !important;
+
+        transform-origin: top left;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .sidebar {
+        width: 33% !important;
+        flex-shrink: 0;
+    }
+
+    .main-content {
+        width: 67% !important;
+        flex-shrink: 0;
     }
 }
