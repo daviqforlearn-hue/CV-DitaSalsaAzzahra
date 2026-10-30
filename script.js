@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         animationObserver.observe(element);
     });
 });
-// Mengatur skala kontainer agar pas selayar penuh di HP tanpa sisa ruang samping
+// Fungsi utama untuk mengatur skala kontainer agar pas selayar penuh di HP tanpa sisa ruang samping
 function sesuaikanSkalaHP() {
     if (window.innerWidth <= 768) {
         const container = document.querySelector('.cv-container');
@@ -51,8 +51,34 @@ function sesuaikanSkalaHP() {
     }
 }
 
-// Pasang event listener agar fungsi langsung jalan tanpa delay saat halaman dimuat
+// Menjalankan fungsi skala secepat mungkin begitu elemen siap
 window.addEventListener('load', sesuaikanSkalaHP);
 window.addEventListener('resize', sesuaikanSkalaHP);
-window.addEventListener('DOMContentLoaded', sesuaikanSkalaHP);
 
+// Logika animasi masuk (Reveal Animation) saat halaman web dimuat
+document.addEventListener("DOMContentLoaded", () => {
+    // Pastikan fungsi skala dipicu kembali untuk keamanan
+    sesuaikanSkalaHP();
+
+    const animatedElements = document.querySelectorAll(".animated-element");
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1
+    };
+
+    const animationObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("reveal");
+                }, index * 150); 
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(element => {
+        animationObserver.observe(element);
+    });
+});
