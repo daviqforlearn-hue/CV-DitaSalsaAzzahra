@@ -29,18 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
         animationObserver.observe(element);
     });
 });
-// Mengatur skala kontainer secara dinamis tepat saat halaman HP dibuka
+// Mengatur skala kontainer agar pas selayar penuh di HP tanpa sisa ruang samping
 function sesuaikanSkalaHP() {
     if (window.innerWidth <= 768) {
         const container = document.querySelector('.cv-container');
         if (container) {
-            // Hitung rasio kecocokan layar HP dibanding lebar asli kontainer (900px + padding)
-            const rasioSkala = window.innerWidth / 930; 
+            // Menggunakan pembagi 905 agar pas dengan lebar kontainer tanpa membuat celah samping
+            const rasioSkala = window.innerWidth / 905; 
             container.style.transform = `scale(${rasioSkala})`;
             
-            // Mengatur space kosong di bawah kontainer akibat efek transform scale
+            // Menghitung ulang tinggi halaman secara dinamis setelah diperkecil
             const tinggiAsli = container.offsetHeight;
-            document.body.style.height = `${tinggiAsli * rasioSkala + 40}px`;
+            document.body.style.height = `${tinggiAsli * rasioSkala + 10}px`;
         }
     } else {
         const container = document.querySelector('.cv-container');
@@ -51,6 +51,8 @@ function sesuaikanSkalaHP() {
     }
 }
 
-// Jalankan saat pertama kali halaman terbuka dan saat layar dirotasi
+// Pasang event listener agar fungsi langsung jalan tanpa delay saat halaman dimuat
 window.addEventListener('load', sesuaikanSkalaHP);
 window.addEventListener('resize', sesuaikanSkalaHP);
+window.addEventListener('DOMContentLoaded', sesuaikanSkalaHP);
+
