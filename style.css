@@ -304,35 +304,38 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
 /* ==========================================================================
-   OPTIMASI HP: MEMAKSA TAMPILAN PRESISI 100% SEPERTI DI LAPTOP (ANTI-POTONG)
+   OPTIMASI HP: PENGUNCI LAYAR FULL & ANTI GESER KESAMPING
    ========================================================================== */
 @media (max-width: 768px) {
+    /* Mengunci halaman web secara total agar tidak bisa meleset ke kanan/kiri */
+    html, body {
+        overflow-x: hidden !important;
+        position: relative;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     body {
-        padding: 10px 0 !important;
-        overflow-x: hidden; /* Mencegah halaman bergeser ke kanan-kiri */
         display: flex;
         justify-content: center;
         align-items: flex-start;
         min-height: 100vh;
     }
 
-    /* Pembungkus luar agar efek scaling tidak merusak tata letak halaman */
+    /* Setelan kontainer CV sebelum diskala oleh JavaScript */
     .cv-container {
-        flex-direction: row !important; /* Tetap pertahankan dua kolom kiri-kanan */
-        width: 900px !important;       /* Kunci lebar dasar pada ukuran laptop standar */
+        flex-direction: row !important; /* Tetap pertahankan dua kolom */
+        width: 900px !important;       /* Gunakan lebar laptop standar */
         min-width: 900px !important;
-        transform-origin: top center;  /* Titik tumpu pengecilan berada di atas tengah */
-        
-        /* Rumus kalkulasi otomatis untuk melakukan zoom out sesuai lebar HP pengguna */
-        transform: scale(calc(window.innerWidth / 940)); 
-        
-        margin-bottom: 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transform-origin: top center;  /* Kunci as pengecilan di atas tengah */
+        margin: 0 auto !important;
+        box-shadow: none !important;   /* Hapus bayangan agar sisi kanan-kiri tidak memicu scroll */
     }
 
-    /* Sembunyikan tombol download di HP jika mengganggu estetika visual utama */
+    /* Sembunyikan bar tombol download di HP agar space layar bersih */
     .action-bar {
         display: none !important;
     }
