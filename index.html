@@ -78,15 +78,82 @@
                 </div>
             </div>
 
-            <!-- Bagian Sosial Media / Tautan Lain -->
-            <div class="sidebar-block">
-                <h3 class="sidebar-title">PORTOFOLIO</h3>
-                <div class="info-group contact-link">
-                    <label>Sertifikat Digital</label>
-                    <p><a href="assets/images/sertifikat-komputer.pdf" target="_blank">Lihat PDF Kompetensi</a></p>
-                </div>
-            </div>
-        </aside>
+<!-- Bagian Sosial Media / Tautan Lain -->
+<div class="sidebar-block">
+    <h3 class="sidebar-title">PORTOFOLIO</h3>
+    <div class="info-group contact-link">
+        <label>Sertifikat Digital</label>
+        
+        <!-- Kontainer Gambar dengan Proteksi CSS -->
+        <div class="secure-image-container">
+            <img src="assets/images/sertifikat-komputer.jpeg" 
+                 alt="Sertifikat Kompetensi" 
+                 class="protected-img" 
+                 draggable="false" 
+                 oncontextmenu="return false;">
+            <!-- Overlay transparan untuk mengecoh klik kanan & drag gambar -->
+            <div class="image-overlay"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* CSS untuk Mempersulit Download Gambar */
+.secure-image-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+
+.protected-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none; /* Mencegah drag dan klik kanan langsung pada gambar */
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0); /* Transparan penuh */
+    z-index: 10;
+}
+</style>
+
+<script>
+// JavaScript untuk Memblokir Shortcut Screenshot (PrintScreen/Snipping Tool) & Klik Kanan
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault(); // Blokir total klik kanan di seluruh halaman
+});
+
+document.addEventListener('keydown', function(e) {
+    // 1. Blokir tombol PrintScreen (hanya efektif di beberapa browser/OS)
+    if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText(''); // Bersihkan clipboard jika mencoba copy
+        alert('Screenshot tidak diizinkan di halaman ini.');
+        e.preventDefault();
+    }
+    
+    // 2. Blokir Inspect Element (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+        (e.ctrlKey && e.key === 'U') ||
+        (e.ctrlKey && e.key === 'S') // Blokir Ctrl+S (Save As)
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+</script>
+
 
         <!-- KONTEN UTAMA KANAN (Light Theme) -->
         <main class="main-content">
